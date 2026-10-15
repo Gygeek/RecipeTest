@@ -1,0 +1,296 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #1a1a1a;
+    /* Added margin-bottom to prevent overlap with fixed navigation on recipe page */
+    padding-bottom: 100px; /* Adjust if your nav bar is taller/shorter */
+
+     /* === ADD YOUR NEW BACKGROUND IMAGE RULES BELOW === */
+
+     /* === MODIFIED LINE FOR TRANSPARENCY EFFECT === */
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), /* This is a semi-transparent white overlay */
+        url('RecipesBackground.png');
+
+        
+    
+    /* ============================================ */
+    /*background-image: url('RecipesBackground.png');*/ /* Replace with your image file name/path */
+    background-size: cover;                       /* Scales the image to cover the entire background */
+    background-position: center center;           /* Centers the image */
+    background-repeat: no-repeat;                 /* Prevents the image from tiling if it's smaller than the screen */
+    background-attachment: fixed;                 /* Makes the background image stay in place when scrolling (parallax effect). You can also use 'scroll' if you prefer the image to scroll with the content. */
+
+    /* The magic for knocking out the text */
+    /*-webkit-background-clip: text;  /* For Safari/Chrome and other WebKit browsers */
+    /*background-clip: text;          /* Standard property */
+
+    /*color: transparent;             /* Makes the actual text color transparent, so the background shows through */
+
+    /* Keep or adjust existing h1 styles like font size, weight, margin */
+    /*font-size: 1.5em; /* Example: adjust to your preference */
+    /*font-weight: bold; /* Example */
+    /*margin: 10px 0; /* Adjust as needed */
+    /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Optional: A subtle shadow can help text pop a bit, but might reduce the knockout purity. Test it. */
+    
+    /* ============================================== */
+}
+* Add CSS to style.css for the link:
+   /* Styling for the "Back to Recipe List" link */
+#back-to-list-link {
+    display: block;
+    margin: 10px auto 15px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: #f0ad4e; /* Orange like the 'Previous' button */
+    padding: 10px 20px;
+    border: none; /* No border, like nav buttons */
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-weight: bold;
+    max-width: 220px;
+    transition: background-color 0.3s ease;
+}
+
+#back-to-list-link:hover {
+    background-color: #ec971f; /* Darker orange on hover */
+}
+}
+/* Adjust header if needed */
+header {
+    background-color: transparent;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    /* position: relative; /* Useful if you want to absolutely position things within it */
+}
+
+
+header h1 {
+    text-align: center;
+     margin-top: 0; /* Adjust if the link pushes it down too much */
+    color: #000080;
+}
+
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    /*background-color: #fff;*/
+    background-color: transparent;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Index Page Specific */
+#recipe-list-container {
+    list-style: none;
+    padding: 0;
+
+    /* New styles for two columns */
+    column-count: 2;
+    column-gap: 30px; /* Increased gap slightly for better spacing */
+    /* list-style-position: inside; /* Use if you want bullets inside the column flow */
+}
+
+#recipe-list-container li {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+
+    /* New style to prevent items breaking across columns */
+    break-inside: avoid-column;
+    -webkit-column-break-inside: avoid; /* Older WebKit browsers */
+            page-break-inside: avoid; /* Older browsers */
+}
+
+#recipe-list-container li:last-child {
+    border-bottom: none;
+}
+
+#recipe-list-container a {
+    text-decoration: none;
+    color: #0b3d91;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+#recipe-list-container a:hover {
+    text-decoration: underline;
+    color: #072c68;
+}
+
+
+/* Recipe Page Specific */
+#recipe-title {
+    text-align: center;
+    color: #1a1a1a;
+}
+
+#recipe-ingredients h2,
+#recipe-instructions h2 {
+    border-bottom: 2px solid #337ab7;
+    padding-bottom: 5px;
+    margin-top: 30px;
+    font-family: Arial, sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #1a1a1a;
+}
+
+#recipe-ingredients h3 { /* For ingredient category titles */
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    color: #1f1f1f;
+    font-size: 1.1em;
+}
+
+#recipe-ingredients ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    padding-left: 0;
+}
+#recipe-ingredients ul li {
+    margin-bottom: 5px;
+}
+
+/* Quantity highlight for ingredients */
+.ingredient-quantity {
+    color: #c0392b;
+    font-weight: 600;
+    margin-right: 6px;
+}
+
+
+#instruction-step-container {
+     /* background-color: #e9f5ff; */ /* Original light blue background */
+    background-color: transparent; /* MODIFIED for transparency */
+
+    
+    border: 1px solid #b3d7ff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+#instruction-step-container #step-counter {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #0b3d91;
+}
+
+#instruction-text {
+    font-size: 1.7em;
+    min-height: 50px; /* Ensures space even for short instructions */
+    color: #1a1a1a;
+}
+
+#navigation-controls {
+    position: fixed; /* Fixed positioning */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333; /* Darker background for better contrast */
+    padding: 15px 0; /* Adjusted padding */
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.2);
+    text-align: center;
+    z-index: 1000;
+    border-top: 1px solid #555;
+}
+
+#navigation-controls button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+#navigation-controls button:hover:not(:disabled) {
+    background-color: #4cae4c;
+}
+
+#navigation-controls button#prev-step {
+    background-color: #f0ad4e;
+}
+#navigation-controls button#prev-step:hover:not(:disabled) {
+    background-color: #ec971f;
+}
+
+
+#navigation-controls button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+/* Container for the two-column layout */
+#recipe-layout-container {
+    display: flex; /* Enable Flexbox */
+    flex-wrap: wrap; /* Allow wrapping for responsiveness */
+    gap: 20px; /* Space between columns */
+    max-width: 1200px; /* Max width for the recipe content area */
+    margin: 20px auto; /* Center it on the page */
+    padding: 0 20px; /* Padding on the sides */
+}
+
+/* Ingredients column (left) */
+#ingredients-column {
+    flex: 1; /* Takes up 1 part of the available space */
+    min-width: 280px; /* Minimum width before wrapping or squishing too much */
+    /* For "sticky" ingredients (stays visible while right column scrolls): */
+    position: sticky;
+    top: 20px; /* Adjust this value based on any fixed header height or desired offset */
+    align-self: flex-start; /* Important for sticky positioning to work correctly with flex parents */
+    /* Ensure the height of the sticky element is not more than viewport if content is long */
+    max-height: calc(100vh - 40px); /* 20px top + 20px bottom padding/margin */
+    overflow-y: auto; /* Allow scrolling within ingredients if it's too tall */
+    color: #1a1a1a;
+}
+
+/* Instructions column (right) */
+#instructions-column {
+    flex: 2; /* Takes up 2 parts of the available space, so it's wider */
+    min-width: 300px; /* Minimum width */
+    /* If this column's content is very long, it will naturally scroll the page,
+       or if #recipe-layout-container doesn't scroll, this one would need overflow-y: auto
+       and a defined height/max-height. Given the sticky ingredients, page scroll is fine. */
+    color: #1a1a1a;
+}
+
+/* Ensure existing sections fit well within the new columns */
+#recipe-ingredients, #recipe-instructions {
+    background-color: transparent; /* If not already set by main */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+#recipe-ingredients h2, #recipe-instructions h2 {
+    margin-top: 0; /* Remove default top margin if padding is on the section */
+}
+
+
+/* Responsive Design: Stack columns on smaller screens */
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+    #recipe-layout-container {
+        flex-direction: column; /* Stack them vertically */
+    }
+
+    #ingredients-column {
+        position: static; /* Reset sticky positioning for stacked layout */
+        max-height: none; /* Reset max-height */
+        width: 100%; /* Take full width */
+        margin-bottom: 20px; /* Space before instructions */
+        overflow-y: visible; /* Reset overflow */
+    }
+
+    #instructions-column {
+        width: 100%; /* Take full width */
+    }
+}
